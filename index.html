@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' data: blob:; connect-src 'self' data: blob:; worker-src 'self' blob:; manifest-src 'self'; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<title>SQL Format — Free SQL Formatter &amp; Minifier, Beautify Queries | S3eidat Tools</title>
+<meta name="description" content="Format and minify SQL: SELECT, JOIN, CASE, subqueries, CTEs, INSERT, UPDATE, CREATE TABLE. Keyword case, indent size, leading or trailing commas, highlighted output. Free, private, never runs your SQL.">
+<meta property="og:title" content="SQL Format — free, private SQL formatter">
+<meta property="og:description" content="Beautify or minify SQL queries. Runs 100% in your browser and never executes anything.">
+<link rel="icon" href="kit/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/kit.css">
+<link rel="stylesheet" href="app.css">
+<script src="kit/kit.js"></script>
+<!--s3:seo-->
+<link rel="canonical" href="https://s3eidat.github.io/sql-format/">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0d0f12">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="S3eidat Tools">
+<meta property="og:url" content="https://s3eidat.github.io/sql-format/">
+<meta property="og:image" content="https://s3eidat.github.io/sql-format/screenshot.png">
+<meta property="og:image:width" content="1280"><meta property="og:image:height" content="800">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SQL Format — Format and minify SQL queries">
+<meta name="twitter:description" content="Format and minify SQL queries. Free, private and runs 100% in your browser: no sign-up, no uploads.">
+<meta name="twitter:image" content="https://s3eidat.github.io/sql-format/screenshot.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "SQL Format", "url": "https://s3eidat.github.io/sql-format/", "description": "Format and minify SQL queries. Free, private and runs 100% in your browser: no sign-up, no uploads.", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any (web browser)", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "image": "https://s3eidat.github.io/sql-format/screenshot.png", "author": {"@type": "Person", "name": "s3eidat", "url": "https://github.com/s3eidat"}}</script>
+<!--/s3:seo-->
+</head>
+<body data-tool="sql-format">
+<main class="s3-main">
+  <section class="s3-hero">
+    <h1>SQL Format</h1>
+    <p>Beautify or minify SQL queries with readable clauses, joins, CASE blocks and subqueries. Your SQL is only re-spaced, never executed or sent anywhere.</p>
+  </section>
+
+  <section class="card stack">
+    <div class="row between">
+      <h2>Input</h2>
+      <div class="row">
+        <button class="btn ghost small" id="sample">Sample</button>
+        <label class="btn ghost small" id="open">Open file<input type="file" accept=".sql,.txt,text/plain" hidden></label>
+        <button class="btn ghost small" id="clear">Clear</button>
+      </div>
+    </div>
+    <label class="field"><span class="sr">SQL input</span>
+      <textarea class="textarea" id="input" spellcheck="false" placeholder="Paste SQL here, e.g. select id, name from users where active = 1 order by name"></textarea>
+    </label>
+    <div class="row sf-opts">
+      <label class="field">Keywords
+        <select class="select" id="kwcase">
+          <option value="upper">UPPER case</option>
+          <option value="lower">lower case</option>
+          <option value="preserve">Keep as typed</option>
+        </select>
+      </label>
+      <label class="field">Indent
+        <select class="select" id="indent">
+          <option value="2">2 spaces</option>
+          <option value="4">4 spaces</option>
+          <option value="tab">Tab</option>
+        </select>
+      </label>
+      <label class="field">Commas
+        <select class="select" id="commas">
+          <option value="trailing">Trailing  a,</option>
+          <option value="leading">Leading  , a</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="keepcom" checked> Keep comments when minifying</label>
+    </div>
+    <div class="row">
+      <button class="btn primary" id="format">Format</button>
+      <button class="btn" id="minify">Minify</button>
+      <span class="grow"></span>
+      <span class="chip" id="status">Waiting for SQL</span>
+    </div>
+  </section>
+
+  <section class="card stack mt">
+    <div class="row between">
+      <h2>Output <small id="info"></small></h2>
+      <div class="row">
+        <button class="btn small" id="copy"><svg class="i"><use href="#i-copy"/></svg>Copy</button>
+        <button class="btn small" id="save"><svg class="i"><use href="#i-download"/></svg>.sql</button>
+      </div>
+    </div>
+    <pre class="out sf-out" id="out" tabindex="0"></pre>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>

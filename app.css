@@ -1,0 +1,19 @@
+#input { min-height: 220px; }
+.sf-opts { align-items: flex-end; gap: 12px; }
+.sf-opts label.field { width: 170px; }
+.sf-opts .check { min-height: 40px; }
+.sf-out { min-height: 260px; max-height: 70vh; overflow: auto; white-space: pre; word-break: normal; tab-size: 4; }
+.sf-k { color: var(--accent); font-weight: 600; }
+.sf-f { color: #c4b5fd; }
+.sf-s { color: #f5c26b; }
+.sf-n { color: #a5b4fc; }
+.sf-q { color: #f0a0d0; }
+.sf-c { color: var(--text-3); font-style: italic; }
+.sf-o { color: var(--text-2); }
+.sf-v { color: var(--ok); }
+[data-theme="light"] .sf-f { color: #6d28d9; }
+[data-theme="light"] .sf-s { color: #a35d00; }
+[data-theme="light"] .sf-n { color: #4338ca; }
+[data-theme="light"] .sf-q { color: #b0127a; }
+@media (max-width: 560px) { .sf-opts label.field { width: calc(50% - 6px); } }
+#input, .sf-out { font-variant-ligatures: none; font-feature-settings: "liga" 0, "calt" 0; }
